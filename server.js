@@ -17,7 +17,7 @@ app.use(bodyParser.json({limit: "900mb"}));
 app.use(cors());
 
 // Server Connection
-let PORT = process.env.PORT || 3000
+let PORT = process.env.PORT || 3080
 
 if (process.env.PORT === 'production'){
     app.use(express.static('client/build'));
@@ -32,7 +32,7 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 // establish connection with server
 app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname, './client/build/index.html'));
+    res.sendFile(path.join(__dirname, './client/build'));
 })
 
 app.listen(PORT, function () {
